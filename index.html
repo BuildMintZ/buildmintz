@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>BuildMintZ · Infrastructure That Ships Revenue</title>
+  <meta name="description" content="Production-ready SaaS foundations for founders and teams building monetized software. Multi-tenant, enterprise-scalable, monetization-first.">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://buildmintz.github.io/">
+  <meta property="og:title" content="BuildMintZ · Infrastructure That Ships Revenue">
+  <meta property="og:description" content="Production-ready SaaS foundations for founders and teams building monetized software.">
+  <meta property="og:image" content="https://buildmintz.github.io/og-image.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-dark text-white">
+  <div id="app">
+    <!-- NAVBAR -->
+    <header class="fixed w-full z-50 glass">
+      <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+          <span class="text-2xl font-bold bg-gradient-to-r from-brand-light to-brand-dark bg-clip-text text-transparent">
+            BuildMintZ
+          </span>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#start" class="text-gray-300 hover:text-white transition">Start</a>
+          <a href="#products" class="text-gray-300 hover:text-white transition">Products</a>
+          <a href="#architecture" class="text-gray-300 hover:text-white transition">Architecture</a>
+          <a href="#demo" class="text-gray-300 hover:text-white transition">Demo</a>
+          <a href="https://github.com/buildmintz" target="_blank" class="text-gray-300 hover:text-white transition">GitHub</a>
+          <a href="#start" class="px-4 py-2 bg-brand rounded-lg hover:bg-brand-light transition">
+            Get Started →
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- HERO with dashboard mockup -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      <div class="absolute inset-0 animated-gradient opacity-20"></div>
+      <div class="absolute inset-0 bg-dark/90"></div>
+      <div class="absolute top-20 left-10 w-72 h-72 bg-brand/20 rounded-full blur-3xl animate-pulse-slow"></div>
+      <div class="absolute bottom-20 right-10 w-96 h-96 bg-brand-dark/20 rounded-full blur-3xl animate-pulse-slow"></div>
+      
+      <div class="relative z-10 max-w-7xl mx-auto px-6">
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+          <div class="flex-1 text-center lg:text-left animate-on-scroll">
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+              <span class="gradient-text">Infrastructure</span>
+              <br />
+              <span class="text-white">That Ships Revenue.</span>
+            </h1>
+            <p class="text-xl text-gray-400 mb-4 max-w-2xl">
+              Production-ready SaaS foundations engineered for developers who build serious products. Multi-tenant, monetization-ready, enterprise-scalable.
+            </p>
+            <!-- MICRO TRUST BAR -->
+            <div class="flex flex-wrap gap-3 justify-center lg:justify-start mb-8">
+              <span class="tech-badge">Production-ready</span>
+              <span class="tech-badge">Monetization-first</span>
+              <span class="tech-badge">Multi-tenant by default</span>
+              <span class="tech-badge">Enterprise-auth ready</span>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a href="#start" class="px-8 py-4 bg-brand rounded-lg hover:bg-brand-light transition text-lg font-medium">
+                Start with SaaS Boilerplate →
+              </a>
+              <a href="#demo" class="px-8 py-4 glass hover:bg-white/10 transition text-lg font-medium">
+                Watch 22-Min Demo
+              </a>
+            </div>
+          </div>
+          <div class="flex-1 animate-on-scroll">
+            <div class="browser-mockup transform hover:scale-105 transition-transform duration-500">
+              <div class="browser-header">
+                <span class="browser-dot bg-red-500"></span>
+                <span class="browser-dot bg-yellow-500"></span>
+                <span class="browser-dot bg-green-500"></span>
+                <span class="ml-4 text-xs text-gray-400">dashboard.buildmintz.io</span>
+              </div>
+              <div class="mockup-content">
+                <div class="flex justify-between items-center">
+                  <div class="mockup-line w-24"></div>
+                  <div class="mockup-line w-16"></div>
+                </div>
+                <div class="mockup-line w-full"></div>
+                <div class="mockup-line w-3/4"></div>
+                <div class="mockup-chart">
+                  <div class="mockup-bar h-12"></div>
+                  <div class="mockup-bar h-16"></div>
+                  <div class="mockup-bar h-8"></div>
+                  <div class="mockup-bar h-20"></div>
+                  <div class="mockup-bar h-10"></div>
+                </div>
+                <div class="grid grid-cols-3 gap-2 mt-4">
+                  <div class="glass p-2 rounded"><div class="mockup-line w-1/2 mb-1"></div><div class="mockup-line w-full"></div></div>
+                  <div class="glass p-2 rounded"><div class="mockup-line w-1/2 mb-1"></div><div class="mockup-line w-full"></div></div>
+                  <div class="glass p-2 rounded"><div class="mockup-line w-1/2 mb-1"></div><div class="mockup-line w-full"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO IT'S FOR -->
+    <section class="py-32 border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-3 gap-12">
+          <div class="glass-card p-8 animate-on-scroll">
+            <div class="text-4xl mb-4">👨‍💻</div>
+            <h3 class="text-xl font-semibold mb-4">Senior Engineers & CTOs</h3>
+            <p class="text-gray-400 leading-relaxed">Multi-tenant microservices, enterprise authentication, CI/CD-ready backends with audit logging and usage metering.</p>
+          </div>
+          <div class="glass-card p-8 animate-on-scroll">
+            <div class="text-4xl mb-4">🚀</div>
+            <h3 class="text-xl font-semibold mb-4">Technical Founders</h3>
+            <p class="text-gray-400 leading-relaxed">Zero-to-production SaaS boilerplates, AI marketplace infrastructure, monetization-first systems.</p>
+          </div>
+          <div class="glass-card p-8 animate-on-scroll">
+            <div class="text-4xl mb-4">📈</div>
+            <h3 class="text-xl font-semibold mb-4">Bootstrapped Teams</h3>
+            <p class="text-gray-400 leading-relaxed">CLI tooling, serverless systems, rapid scaffolding with revenue-ready billing integrations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHOOSE YOUR STARTING POINT -->
+    <section id="start" class="py-32 bg-black/20">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2 class="section-title text-center mb-16 animate-on-scroll">
+          <span class="gradient-text">Choose Your Starting Point</span>
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <a href="https://github.com/buildmintz/saas-boilerplate" target="_blank" class="glass-card p-8 animate-on-scroll group text-center">
+            <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">🚀</div>
+            <h3 class="text-2xl font-bold mb-2">Launch a SaaS</h3>
+            <p class="text-gray-400 mb-4">Authentication, billing, admin — production‑safe boilerplate.</p>
+            <span class="text-brand group-hover:translate-x-2 inline-block transition-transform">Use boilerplate →</span>
+          </a>
+          <a href="https://github.com/buildmintz/ai-marketplace" target="_blank" class="glass-card p-8 animate-on-scroll group text-center">
+            <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">🤖</div>
+            <h3 class="text-2xl font-bold mb-2">Build an AI Marketplace</h3>
+            <p class="text-gray-400 mb-4">Usage‑metered APIs, creator dashboards, Stripe Connect.</p>
+            <span class="text-brand group-hover:translate-x-2 inline-block transition-transform">Use AI infra →</span>
+          </a>
+          <a href="https://github.com/buildmintz/serverless-commerce" target="_blank" class="glass-card p-8 animate-on-scroll group text-center">
+            <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">🏬</div>
+            <h3 class="text-2xl font-bold mb-2">Multi‑tenant Commerce</h3>
+            <p class="text-gray-400 mb-4">Isolated tenants, plan enforcement, enterprise CMS.</p>
+            <span class="text-brand group-hover:translate-x-2 inline-block transition-transform">Use commerce system →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISUAL PROOF (dashboard + CLI) -->
+    <section class="py-32">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2 class="section-title text-center mb-16 animate-on-scroll">
+          <span class="gradient-text">See It In Action</span>
+        </h2>
+        <div class="grid md:grid-cols-2 gap-12 items-start">
+          <div class="animate-on-scroll">
+            <h3 class="text-2xl font-bold mb-6">Real Dashboard Preview</h3>
+            <div class="browser-mockup">
+              <div class="browser-header">
+                <span class="browser-dot bg-red-500"></span>
+                <span class="browser-dot bg-yellow-500"></span>
+                <span class="browser-dot bg-green-500"></span>
+                <span class="ml-4 text-xs text-gray-400">app.buildmintz.io/analytics</span>
+              </div>
+              <div class="mockup-content">
+                <div class="flex justify-between">
+                  <span class="text-xs text-gray-400">Monthly Recurring Revenue</span>
+                  <span class="text-xs text-brand">+23%</span>
+                </div>
+                <div class="mockup-chart justify-around">
+                  <div class="mockup-bar h-16"></div><div class="mockup-bar h-24"></div><div class="mockup-bar h-20"></div>
+                  <div class="mockup-bar h-32"></div><div class="mockup-bar h-28"></div><div class="mockup-bar h-36"></div>
+                </div>
+                <div class="grid grid-cols-2 gap-2 mt-4">
+                  <div class="glass p-3 rounded">
+                    <div class="text-xs text-gray-400">Active tenants</div>
+                    <div class="text-xl font-bold">1,284</div>
+                  </div>
+                  <div class="glass p-3 rounded">
+                    <div class="text-xs text-gray-400">API calls (today)</div>
+                    <div class="text-xl font-bold">2.4M</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="animate-on-scroll">
+            <h3 class="text-2xl font-bold mb-6">Instant Scaffolding</h3>
+            <div class="terminal">
+              <div class="terminal-header">
+                <span class="browser-dot bg-red-500"></span>
+                <span class="browser-dot bg-yellow-500"></span>
+                <span class="browser-dot bg-green-500"></span>
+                <span class="ml-4 text-xs text-gray-400">Terminal</span>
+              </div>
+              <div class="terminal-content">
+                <div><span class="terminal-prompt">$</span> <span class="terminal-command">npx create-buildmintz-app my-saas --multi-tenant</span></div>
+                <div class="terminal-output">Creating new BuildMintZ SaaS project...</div>
+                <div class="terminal-output">✅ Multi-tenant isolation configured</div>
+                <div class="terminal-output">✅ Stripe integration added</div>
+                <div class="terminal-output">✅ JWT auth with MFA ready</div>
+                <div class="terminal-output">✅ Audit logging enabled</div>
+                <div class="terminal-output">✨ Project generated in 3.2s</div>
+                <div class="mt-2"><span class="terminal-prompt">$</span> <span class="terminal-command">cd my-saas && npm run dev</span></div>
+                <div class="terminal-output">> SaaS backend running on http://localhost:3000</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CORE PRODUCTS -->
+    <section id="products" class="py-32 bg-black/20">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2 class="section-title text-center mb-16 animate-on-scroll">
+          <span class="gradient-text">All Products</span>
+        </h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <a href="https://github.com/buildmintz/saas-boilerplate" target="_blank" class="glass-card p-8 animate-on-scroll group">🚀 SaaS Boilerplates →</a>
+          <a href="https://github.com/buildmintz/ai-marketplace" target="_blank" class="glass-card p-8 animate-on-scroll group">🤖 AI Marketplace Infra →</a>
+          <a href="https://github.com/buildmintz/serverless-commerce" target="_blank" class="glass-card p-8 animate-on-scroll group">🏬 Commerce Systems →</a>
+          <a href="https://github.com/buildmintz/emailops" target="_blank" class="glass-card p-8 animate-on-scroll group">📬 EmailOps →</a>
+          <a href="https://www.npmjs.com/package/create-buildmintz-app" target="_blank" class="glass-card p-8 animate-on-scroll group">🛠 CLI Tooling →</a>
+          <a href="#demo" class="glass-card p-8 animate-on-scroll group">🎥 Watch Demo →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SYSTEM ARCHITECTURE with enterprise signals -->
+    <section id="architecture" class="py-32">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="section-title text-center mb-16 animate-on-scroll">
+          <span class="gradient-text">System Architecture</span>
+        </h2>
+        <div class="relative">
+          <div class="arch-grid">
+            <div class="arch-item">API Gateway</div>
+            <div class="arch-item">Auth Service<br><span class="text-xs text-gray-400">JWT · MFA · SAML</span></div>
+            <div class="arch-item">Billing<br><span class="text-xs text-gray-400">Stripe · Metering</span></div>
+            <div class="arch-item">Tenant DB<br><span class="text-xs text-gray-400">Isolated schemas</span></div>
+            <div class="arch-item">Analytics<br><span class="text-xs text-gray-400">Usage quotas</span></div>
+            <div class="arch-item">Webhooks<br><span class="text-xs text-gray-400">Replayable</span></div>
+            <div class="arch-item">EmailOps<br><span class="text-xs text-gray-400">Automation</span></div>
+            <div class="arch-item">Audit Log<br><span class="text-xs text-gray-400">Centralized</span></div>
+            <div class="arch-item">Marketplace<br><span class="text-xs text-gray-400">Payouts</span></div>
+          </div>
+        </div>
+        <!-- Performance metrics (implied scale) -->
+        <div class="flex flex-wrap justify-center gap-4 mt-16">
+          <span class="tech-badge">⚡ Cold start &lt; 50ms</span>
+          <span class="tech-badge">📈 Engineered for 10k+ tenants</span>
+          <span class="tech-badge">🔒 SOC2 ready</span>
+          <span class="tech-badge">🌐 Multi-region</span>
+        </div>
+        <!-- Tech stack badges -->
+        <div class="flex flex-wrap justify-center gap-3 mt-8">
+          <span class="tech-badge">Node.js</span>
+          <span class="tech-badge">PostgreSQL</span>
+          <span class="tech-badge">Stripe</span>
+          <span class="tech-badge">Redis</span>
+          <span class="tech-badge">Docker</span>
+          <span class="tech-badge">S3</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTION GUARANTEES -->
+    <section class="py-20 bg-black/20">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="section-title text-center mb-12 animate-on-scroll">
+          <span class="gradient-text">Production Guarantees</span>
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+          <div class="glass-card p-6">
+            <span class="text-3xl block mb-4">🔐</span>
+            <h4 class="text-lg font-semibold mb-2">Enterprise Security</h4>
+            <p class="text-gray-400">Audit logging, environment separation, SAML-ready.</p>
+          </div>
+          <div class="glass-card p-6">
+            <span class="text-3xl block mb-4">📦</span>
+            <h4 class="text-lg font-semibold mb-2">Upgrade‑Safe Architecture</h4>
+            <p class="text-gray-400">Structured migrations, backward‑compatible APIs.</p>
+          </div>
+          <div class="glass-card p-6">
+            <span class="text-3xl block mb-4">⚙️</span>
+            <h4 class="text-lg font-semibold mb-2">CI/CD Ready</h4>
+            <p class="text-gray-400">Tested pipelines, environment config, infrastructure as code.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL PROOF (honest signals) -->
+    <section class="py-20 border-y border-white/5">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <p class="text-gray-400 mb-8">Trusted by engineering teams building at scale</p>
+        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+          <span class="text-2xl font-bold text-gray-600 opacity-50">ACME</span>
+          <span class="text-2xl font-bold text-gray-600 opacity-50">GLOBEX</span>
+          <span class="text-2xl font-bold text-gray-600 opacity-50">INITECH</span>
+          <span class="text-2xl font-bold text-gray-600 opacity-50">OMNICORP</span>
+          <span class="text-2xl font-bold text-gray-600 opacity-50">VORTEX</span>
+        </div>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          <span class="tech-badge">Open-source friendly</span>
+          <span class="tech-badge">Actively maintained</span>
+          <span class="tech-badge">Versioned releases</span>
+          <span class="tech-badge">MIT / Commercial licensing</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO DEMO -->
+    <section id="demo" class="py-32">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="section-title text-center mb-16 animate-on-scroll">
+          <span class="gradient-text">Platform Overview</span>
+        </h2>
+        <div class="glass p-4 rounded-2xl animate-on-scroll">
+          <div class="aspect-video rounded-xl overflow-hidden">
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/-7Nx18iqIok" title="BuildMintZ Platform Overview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </div>
+        <p class="text-gray-400 text-center mt-8">22‑minute complete walkthrough • 7 microservices • Production-ready</p>
+      </div>
+    </section>
+
+    <!-- CLOSING STATEMENT -->
+    <section class="py-32 text-center">
+      <div class="max-w-4xl mx-auto px-6">
+        <h2 class="text-5xl md:text-7xl font-bold mb-6 animate-on-scroll">
+          We don't ship <span class="line-through text-gray-600">demos</span>.
+        </h2>
+        <h3 class="text-5xl md:text-7xl font-bold gradient-text animate-on-scroll">
+          We ship systems that sell.
+        </h3>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/5 py-12">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div><h4 class="text-xl font-bold gradient-text mb-4">BuildMintZ</h4><p class="text-gray-400 text-sm">Infrastructure that ships revenue.</p></div>
+          <div><h5 class="font-semibold mb-4">Products</h5><ul class="space-y-2 text-gray-400"><li><a href="#">SaaS Boilerplates</a></li><li><a href="#">AI Marketplace</a></li><li><a href="#">Commerce Systems</a></li></ul></div>
+          <div><h5 class="font-semibold mb-4">Resources</h5><ul class="space-y-2 text-gray-400"><li><a href="#demo">Demo Video</a></li><li><a href="https://github.com/buildmintz">GitHub</a></li><li><a href="#">Documentation</a></li></ul></div>
+          <div><h5 class="font-semibold mb-4">Built with</h5><div class="flex flex-wrap gap-2"><span class="tech-badge">.NET</span><span class="tech-badge">Stripe</span><span class="tech-badge">Azure</span><span class="tech-badge">React</span><span class="tech-badge">Node.js</span><span class="tech-badge">Postgres</span></div></div>
+        </div>
+        <div class="text-center text-gray-500 text-sm mt-12">© 2026 BuildMintZ. All rights reserved.</div>
+      </div>
+    </footer>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
