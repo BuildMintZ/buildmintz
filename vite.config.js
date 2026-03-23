@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  // Set base to your repository name
-  base: '/buildmintz/',
+  // Remove the base path or set to '/' for root
+  base: '/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
