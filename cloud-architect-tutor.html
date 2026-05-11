@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Cloud Architect Tutor v7.0 · BuildMintZ</title>
+  <meta name="description" content="The only Terraform generator that teaches while it builds. 60 seconds to production-ready infrastructure. 14 architectures, 1k to 1M+ users.">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.buildmintz.com/cloud-architect-tutor">
+  <meta property="og:title" content="Cloud Architect Tutor v7.0 · BuildMintZ">
+  <meta property="og:description" content="Production-ready Terraform generated in 60 seconds. Infrastructure that teaches you AWS architecture.">
+  <meta property="og:image" content="https://www.buildmintz.com/og-image-cat.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="/assets/index-aq0zod_D.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-S5HuE4Vo.css">
+  
+  <style>
+    /* Additional styles specific to CAT page */
+    .cat-terminal {
+      background: #0a0f1a;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: 0.75rem;
+      overflow: hidden;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8125rem;
+      line-height: 1.6;
+      box-shadow: 0 0 40px rgba(99, 102, 241, 0.15);
+    }
+    .cat-terminal-header {
+      background: rgba(99, 102, 241, 0.15);
+      border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+    }
+    .cat-terminal-body {
+      padding: 1.25rem;
+      color: #cbd5e1;
+    }
+    .cat-prompt { color: #22c55e; }
+    .cat-output { color: #94a3b8; margin-left: 0.5rem; }
+    .cat-highlight { color: #6366f1; }
+    .cat-white { color: #ffffff; }
+    .cat-line { margin-bottom: 0.25rem; }
+    
+    .cat-feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .cat-feature-card {
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    .cat-feature-card:hover {
+      border-color: rgba(99, 102, 241, 0.3);
+      background: rgba(99, 102, 241, 0.05);
+      transform: translateY(-2px);
+    }
+    
+    .cat-price-card {
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 1rem;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .cat-price-card.featured {
+      border-color: rgba(99, 102, 241, 0.5);
+      background: rgba(99, 102, 241, 0.05);
+      box-shadow: 0 0 30px rgba(99, 102, 241, 0.1);
+    }
+    .cat-price-card.coming-soon {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+    .cat-price-card:hover {
+      transform: translateY(-4px);
+    }
+    
+    .cat-lesson-block {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .cat-lesson-block:hover {
+      border-color: rgba(99, 102, 241, 0.2);
+    }
+    
+    .cat-testimonial {
+      border-left: 3px solid #6366f1;
+      padding-left: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .cat-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .cat-check svg {
+      flex-shrink: 0;
+      margin-top: 0.25rem;
+    }
+    
+    .cat-roi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.25rem;
+    }
+    .cat-roi-header {
+      background: rgba(99, 102, 241, 0.2);
+      padding: 0.75rem;
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+    .cat-roi-cell {
+      background: rgba(255,255,255,0.03);
+      padding: 0.75rem;
+      font-size: 0.875rem;
+    }
+    .cat-roi-cell:nth-child(even) {
+      background: rgba(255,255,255,0.06);
+    }
+    .cat-roi-savings {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #6366f1;
+    }
+    
+    .coming-soon-badge {
+      display: inline-block;
+      background: rgba(234, 179, 8, 0.15);
+      border: 1px solid rgba(234, 179, 8, 0.4);
+      color: #eab308;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .btn-disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    /* Waitlist form */
+    .waitlist-form {
+      background: rgba(15, 23, 42, 0.8);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      text-align: center;
+      max-width: 500px;
+      margin: 2rem auto 0;
+    }
+    .waitlist-form input {
+      background: rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 0.5rem;
+      padding: 0.75rem 1rem;
+      color: white;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    .waitlist-form button {
+      background: #6366f1;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .waitlist-form button:hover {
+      background: #4f52e0;
+    }
+  </style>
+</head>
+<body class="bg-dark text-white">
+  <div id="app">
+    
+    <!-- NAVBAR (unchanged) -->
+    <header class="fixed w-full z-50 glass">
+      <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="/" class="flex items-center space-x-2">
+          <span class="text-2xl font-bold bg-gradient-to-r from-brand-light to-brand-dark bg-clip-text text-transparent">
+            BuildMintZ
+          </span>
+        </a>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="/#start" class="text-gray-300 hover:text-white transition">Start</a>
+          <a href="/#products" class="text-gray-300 hover:text-white transition">Products</a>
+          <a href="/cloud-architect-tutor.html" class="text-brand font-medium transition">Cloud Architect Tutor</a>
+          <a href="/#architecture" class="text-gray-300 hover:text-white transition">Architecture</a>
+          <a href="/#demo" class="text-gray-300 hover:text-white transition">Demo</a>
+          <a href="https://github.com/buildmintz" target="_blank" class="text-gray-300 hover:text-white transition">GitHub</a>
+          <a href="#pricing" class="px-4 py-2 bg-brand rounded-lg hover:bg-brand-light transition">
+            Get It Now →
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- HERO (unchanged) -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      <div class="absolute inset-0 animated-gradient opacity-15"></div>
+      <div class="absolute inset-0 bg-dark/90"></div>
+      <div class="absolute top-20 left-10 w-72 h-72 bg-brand/20 rounded-full blur-3xl animate-pulse-slow"></div>
+      <div class="absolute bottom-20 right-10 w-96 h-96 bg-brand-dark/20 rounded-full blur-3xl animate-pulse-slow"></div>
+      
+      <div class="relative z-10 max-w-7xl mx-auto px-6 py-20">
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+          <div class="flex-1 text-center lg:text-left">
+            <div class="inline-flex items-center px-3 py-1 rounded-full bg-brand/20 border border-brand/30 text-brand text-sm font-medium mb-6">
+              🚀 v7.0 — New Release
+            </div>
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+              <span class="gradient-text">Cloud Architect</span>
+              <br />
+              <span class="gradient-text">Tutor</span>
+              <span class="text-white"> v7.0</span>
+            </h1>
+            <p class="text-2xl text-gray-300 mb-4 font-semibold">
+              The Only Terraform Generator That <span class="text-brand">TEACHES</span> While It Builds
+            </p>
+            <p class="text-lg text-gray-400 mb-8 max-w-2xl">
+              ⚡ 60 seconds to generate production-ready code. 14 architectures. From a single EC2 instance to multi-region EKS serving 1M+ users.
+            </p>
+            <div class="flex flex-wrap gap-3 justify-center lg:justify-start mb-8">
+              <span class="tech-badge">🎯 14 Production Scenarios</span>
+              <span class="tech-badge">📚 Educational Output</span>
+              <span class="tech-badge">🔒 KMS-Encrypted</span>
+              <span class="tech-badge">⚡ CI/CD Ready</span>
+              <span class="tech-badge">🌍 Multi-Region</span>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a href="https://mintzmedia.gumroad.com/l/xzmnq" target="_blank" class="px-8 py-4 bg-brand rounded-lg hover:bg-brand-light transition text-lg font-medium">
+                Get Production Code — $497 →
+              </a>
+              <a href="#how-it-works" class="px-8 py-4 glass hover:bg-white/10 transition text-lg font-medium">
+                See How It Works ↓
+              </a>
+            </div>
+          </div>
+          <div class="flex-1">
+            <div class="cat-terminal">
+              <div class="cat-terminal-header">
+                <span class="browser-dot bg-red-500"></span>
+                <span class="browser-dot bg-yellow-500"></span>
+                <span class="browser-dot bg-green-500"></span>
+                <span class="ml-4 text-xs text-gray-400">~/cloud-architect-tutor</span>
+              </div>
+              <div class="cat-terminal-body">
+                <div class="cat-line"><span class="cat-prompt">$</span> <span class="cat-white">./cloud-architect-tutor.sh</span></div>
+                <div class="cat-line cat-output">━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+                <div class="cat-line"><span class="cat-white">Choose your system:</span></div>
+                <div class="cat-line cat-output">  <span class="cat-highlight">1)</span> Web Application</div>
+                <div class="cat-line cat-output">  <span class="cat-highlight">2)</span> Microservices Platform</div>
+                <div class="cat-line cat-output sp">  <span class="cat-highlight">3)</span> Data Pipeline</div>
+                <div class="cat-line cat-output">  <span class="cat-highlight">4)</span> IoT Backend</div>
+                <div class="cat-line"></div>
+                <div class="cat-line"><span class="cat-white">Select scale:</span></div>
+                <div class="cat-line cat-output">  <span class="cat-highlight">1)</span> 1k users → Single EC2 (FREE tier eligible)</div>
+                <div class="cat-line cat-output">  <span class="cat-highlight">2)</span> 10k users → ASG + RDS (est. $500-800/mo)</div>
+                <div class="cat-line cat-output">  <span class="cat-highlight">3)</span> 100k users → EKS + WAF (est. $1,200-2,000/mo)</div>
+                <div class="cat-line cat-output">  <span class="cat-highlight">4)</span> 1M+ users → Multi-region EKS ($20k+/mo estimate)</div>
+                <div class="cat-line"></div>
+                <div class="cat-line"><span class="cat-prompt">$</span> <span class="cat-white">✓ Generating Terraform...</span></div>
+                <div class="cat-line cat-output">✅ VPC + Subnets configured</div>
+                <div class="cat-line cat-output">✅ EKS cluster defined</div>
+                <div class="cat-line cat-output">✅ RDS Multi-AZ with encryption</div>
+                <div class="cat-line cat-output">✅ KMS keys generated</div>
+                <div class="cat-line cat-output">✅ CI/CD pipeline created</div>
+                <div class="cat-line cat-output">✨ <span class="cat-highlight">Code generated in 60 seconds!</span></div>
+                <div class="cat-line cat-output text-gray-500 text-xs mt-2">*Deployment times vary (EKS cluster ~15-20 min)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT IT GENERATES (unchanged) -->
+    <section class="py-20 border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2 class="section-title text-center mb-4">
+          <span class="gradient-text">Complete Terraform Projects</span>
+        </h2>
+        <p class="text-gray-400 text-center mb-16 max-w-2xl mx-auto">Everything you need — infrastructure, security, CI/CD, and documentation — generated from a single script.</p>
+        
+        <div class="cat-feature-grid">
+          <div class="cat-feature-card">
+            <div class="text-3xl mb-3">🏗️</div>
+            <h3 class="text-lg font-semibold mb-2">Infrastructure</h3>
+            <p class="text-gray-400 text-sm">VPC, subnets, NAT gateways, flow logs, VPC endpoints — all environment-aware with production-staging split.</p>
+          </div>
+          <div class="cat-feature-card">
+            <div class="text-3xl mb-3">⚙️</div>
+            <h3 class="text-lg font-semibold mb-2">Compute</h3>
+            <p class="text-gray-400 text-sm">EC2, Auto Scaling Groups, ECS Fargate, or EKS clusters with managed node groups and IRSA integration.</p>
+          </div>
+          <div class="cat-feature-card">
+            <div class="text-3xl mb-3">🗄️</div>
+            <h3 class="text-lg font-semibold mb-2">Database & Cache</h3>
+            <p class="text-gray-400 text-sm">RDS PostgreSQL Multi-AZ with encryption, backups, RDS Proxy. ElastiCache Redis with cluster mode options.</p>
+          </div>
+          <div class="cat-feature-card">
+            <div class="text-3xl mb-3">🔒</div>
+            <h3 class="text-lg font-semibold mb-2">Security</h3>
+            <p class="text-gray-400 text-sm">KMS encryption keys per service, IAM least privilege, WAFv2 with rate limiting, IMDSv2 enforced, SSH restricted.</p>
+          </div>
+          <div class="cat-feature-card">
+            <div class="text-3xl mb-3">📊</div>
+            <h3 class="text-lg font-semibold mb-2">Observability</h3>
+            <p class="text-gray-400 text-sm">CloudWatch dashboards, alarms, log groups with KMS encryption. Pre-configured metrics for all services.</p>
+          </div>
+          <div class="cat-feature-card">
+            <div class="text-3xl mb-3">🚀</div>
+            <h3 class="text-lg font-semibold mb-2">CI/CD & Docs</h3>
+            <p class="text-gray-400 text-sm">GitHub Actions workflow (plan on PR, apply on merge). ADR, PREREQUISITES, CHEATSHEET, DEPLOY docs included.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS (unchanged) -->
+    <section id="how-it-works" class="py-20 bg-black/20">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2 class="section-title text-center mb-16">
+          <span class="gradient-text">How It Works</span>
+        </h2>
+        
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+          <div class="glass-card p-8 text-center">
+            <div class="text-5xl mb-4">1️⃣</div>
+            <h3 class="text-xl font-semibold mb-3">Discovery</h3>
+            <p class="text-gray-400">The script scans your AWS environment — existing VPCs, subnets, availability zones, and your public IP for SSH restriction.</p>
+          </div>
+          <div class="glass-card p-8 text-center">
+            <div class="text-5xl mb-4">2️⃣</div>
+            <h3 class="text-xl font-semibold mb-3">Intelligent Questions</h3>
+            <p class="text-gray-400">Answers 10-15 questions about your architecture. Every question includes a built-in LESSON explaining the tradeoffs.</p>
+          </div>
+          <div class="glass-card p-8 text-center">
+            <div class="text-5xl mb-4">3️⃣</div>
+            <h3 class="text-xl font-semibold mb-3">Generate & Deploy</h3>
+            <p class="text-gray-400">60 seconds later: complete Terraform project with 20+ files, production-ready. Run <code class="text-brand">terraform apply</code> and ship.</p>
+          </div>
+        </div>
+
+        <!-- Generated file tree (unchanged) -->
+        <div class="max-w-2xl mx-auto">
+          <div class="cat-terminal">
+            <div class="cat-terminal-header">
+              <span class="text-xs text-gray-400">📁 Generated: infrastructure/terraform/app-webapp_enterprise/</span>
+            </div>
+            <div class="cat-terminal-body">
+              <div class="cat-line cat-output">├── <span class="cat-white">main.tf</span>                    <span class="cat-output"># EKS + VPC + KMS + WAF</span></div>
+              <div class="cat-line cat-output">├── <span class="cat-white">variables.tf</span>               <span class="cat-output"># 20+ variables with validation</span></div>
+              <div class="cat-line cat-output">├── <span class="cat-white">terraform.tfvars</span>           <span class="cat-output"># Your values (ready to edit)</span></div>
+              <div class="cat-line cat-output">├── <span class="cat-white">PREREQUISITES.md</span>           <span class="cat-output"># Step-by-step setup guide</span></div>
+              <div class="cat-line cat-output">├── <span class="cat-white">CHEATSHEET.md</span>              <span class="cat-output"># Quick commands reference</span></div>
+              <div class="cat-line cat-output">├── <span class="cat-white">DEPLOY.md</span>                  <span class="cat-output"># Deployment instructions</span></div>
+              <div class="cat-line cat-output">├── <span class="cat-white">ADR-001-architecture-decision.md</span></div>
+              <div class="cat-line cat-output">├── <span class="cat-white">.github/workflows/terraform.yml</span>  <span class="cat-output"># CI/CD</span></div>
+              <div class="cat-line cat-output">├── <span class="cat-white">modules/security-groups/</span>  <span class="cat-output"># Reusable SG module</span></div>
+              <div class="cat-line cat-output">└── <span class="cat-white">helm-charts/example-app/</span>   <span class="cat-output"># HPA, PDB, security contexts</span></div>
+              <div class="cat-line mt-2"><span class="cat-highlight">✨ 42 files | ~8,000 lines | Production-ready</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROI CALCULATOR (with footnote) -->
+    <section class="py-20">
+      <div class="max-w-4xl mx-auto px-6">
+        <h2 class="section-title text-center mb-4">
+          <span class="gradient-text">ROI Calculation</span>
+        </h2>
+        <p class="text-gray-400 text-center mb-12">At $150/hr consulting rate, this tool saves <span class="text-brand font-bold">$5,400+ per project</span></p>
+        
+        <div class="overflow-hidden rounded-xl border border-white/10">
+          <div class="cat-roi-grid">
+            <div class="cat-roi-header">Task</div>
+            <div class="cat-roi-header">Without CAT</div>
+            <div class="cat-roi-header">With CAT</div>
+            
+            <div class="cat-roi-cell">Research architecture</div>
+            <div class="cat-roi-cell">8 hours</div>
+            <div class="cat-roi-cell text-brand">Generated automatically</div>
+            
+            <div class="cat-roi-cell">Write Terraform</div>
+            <div class="cat-roi-cell">16 hours</div>
+            <div class="cat-roi-cell text-brand">60 seconds*</div>
+            
+            <div class="cat-roi-cell">Debug mistakes</div>
+            <div class="cat-roi-cell">8 hours</div>
+            <div class="cat-roi-cell text-brand">No mistakes (validated)</div>
+            
+            <div class="cat-roi-cell">Write documentation</div>
+            <div class="cat-roi-cell">4 hours</div>
+            <div class="cat-roi-cell text-brand">Generated automatically</div>
+            
+            <div class="cat-roi-cell font-semibold">Total</div>
+            <div class="cat-roi-cell font-semibold">36 hours</div>
+            <div class="cat-roi-cell font-semibold text-brand">1 hour*</div>
+          </div>
+        </div>
+        <div class="text-center mt-8">
+          <p class="cat-roi-savings">$5,400 SAVED PER PROJECT</p>
+          <p class="text-gray-400">Cloud Architect Tutor pays for itself in <span class="text-white font-bold">one project</span></p>
+          <p class="text-gray-500 text-xs mt-2">*Generation time; applying the Terraform may take a few additional minutes (e.g., EKS provisioning ~15-20 min).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEARNING PATH (unchanged) -->
+    <section class="py-20 bg-black/20">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="section-title text-center mb-4">
+          <span class="gradient-text">What You'll Learn</span>
+        </h2>
+        <p class="text-gray-400 text-center mb-12">7 progressive sessions — each generates working code and teaches WHY, not just HOW</p>
+        
+        <div class="space-y-4">
+          <div class="cat-lesson-block">
+            <div class="flex items-start gap-4">
+              <span class="text-2xl">1️⃣</span>
+              <div>
+                <h3 class="font-semibold">Single EC2 (1-1k users)</h3>
+                <p class="text-gray-400 text-sm">Understanding basic resources, security groups, and user data scripting</p>
+              </div>
+            </div>
+          </div>
+          <div class="cat-lesson-block">
+            <div class="flex items-start gap-4">
+              <span class="text-2xl">2️⃣</span>
+              <div>
+                <h3 class="font-semibold">Monitored EC2 (1k-5k users)</h3>
+                <p class="text-gray-400 text-sm">CloudWatch dashboards, alarms, SNS notifications, log groups</p>
+              </div>
+            </div>
+          </div>
+          <div class="cat-lesson-block">
+            <div class="flex items-start gap-4">
+              <span class="text-2xl">3️⃣</span>
+              <div>
+                <h3 class="font-semibold">ASG + RDS (5k-10k users)</h3>
+                <p class="text-gray-400 text-sm">High availability patterns, Multi-AZ databases, launch templates</p>
+              </div>
+            </div>
+          </div>
+          <div class="cat-lesson-block">
+            <div class="flex items-start gap-4">
+              <span class="text-2xl">4️⃣</span>
+              <div>
+                <h3 class="font-semibold">ECS Fargate (10k-50k users)</h3>
+                <p class="text-gray-400 text-sm">Container orchestration, service discovery, ALB routing patterns</p>
+              </div>
+            </div>
+          </div>
+          <div class="cat-lesson-block">
+            <div class="flex items-start gap-4">
+              <span class="text-2xl">5️⃣</span>
+              <div>
+                <h3 class="font-semibold">EKS + IRSA (50k-100k users)</h3>
+                <p class="text-gray-400 text-sm">Kubernetes on AWS, IAM Roles for Service Accounts, pod security</p>
+              </div>
+            </div>
+          </div>
+          <div class="cat-lesson-block">
+            <div class="flex items-start gap-4">
+              <span class="text-2xl">6️⃣</span>
+              <div>
+                <h3 class="font-semibold">Multi-region EKS (100k-1M users)</h3>
+                <p class="text-gray-400 text-sm">Global architecture, latency-based routing, cross-region replication</p>
+              </div>
+            </div>
+          </div>
+          <div class="cat-lesson-block">
+            <div class="flex items-start gap-4">
+              <span class="text-2xl">7️⃣</span>
+              <div>
+                <h3 class="font-semibold">Cell-based Architecture (1M+)</h3>
+                <p class="text-gray-400 text-sm">Advanced patterns for hyperscale, blast radius reduction, tenant isolation</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPARISON TABLE (unchanged) -->
+    <section class="py-20">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="section-title text-center mb-4">
+          <span class="gradient-text">What Makes Us Different</span>
+        </h2>
+        <p class="text-gray-400 text-center mb-12">Not just a generator — a complete infrastructure education platform</p>
+        
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-white/20">
+                <th class="text-left py-4 px-4 text-gray-400">Feature</th>
+                <th class="text-center py-4 px-4 text-gray-400">AWS Console</th>
+                <th class="text-center py-4 px-4 text-gray-400">Terraform Docs</th>
+                <th class="text-center py-4 px-4 text-gray-400">A Cloud Guru</th>
+                <th class="text-center py-4 px-4 text-brand font-semibold">Cloud Architect Tutor</th>
+              </td>
+            </thead>
+            <tbody class="text-gray-300">
+              <tr class="border-b border-white/10"><td class="py-3 px-4">Generates working code</td><td class="text-center py-3 px-4">❌</td><td class="text-center py-3 px-4">❌</td><td class="text-center py-3 px-4">❌</td><td class="text-center py-3 px-4 text-brand">✅</td></tr>
+              <tr class="border-b border-white/10"><td class="py-3 px-4">Explains architecture decisions</td><td class="text-center py-3 px-4">❌</td><td class="text-center py-3 px-4">❌</td><td class="text-center py-3 px-4">✅</td><td class="text-center py-3 px-4 text-brand">✅</td></tr>
+              <tr class="border-b border-white/10"><td class="py-3 px-4">Auto-detects your VPC/subnets</td><td class="text-center py-3 px-4">❌</td><td class="text-center py-3 px-4">❌</td><td class="text-center py-3 px-4">❌</td><td class="text-center py-3 px-4 text-brand">✅</td></tr>
+              <tr class="border-b border-white/10"><td class="py-3 px-4">Includes CI/CD pipeline</td><td class="text-center py-3 px-4">❌</td><td class="text-center py-3 px-4">❌</td><td class="text-center py-3 px-4">❌</td><td class="text-center py-3 px-4 text-brand">✅</td></tr>
+              <tr class="border-b border-white/10"><td class="py-3 px-4">Generates Helm charts</td><td class="text-center py-3 px-4">❌</td><td class="text-center py-3 px-4">❌</td><td class="text-center py-3 px-4">❌</td><td class="text-center py-3 px-4 text-brand">✅</td></tr>
+              <tr class="border-b border-white/10"><td class="py-3 px-4">Handles 1k → 1M+ users</td><td class="text-center py-3 px-4">❌</td><td class="text-center py-3 px-4">❌</td><td class="text-center py-3 px-4">❌</td><td class="text-center py-3 px-4 text-brand">✅</td></tr>
+              <tr class="border-b border-white/10"><td class="py-3 px-4">Creates ADR documentation</td><td class="text-center py-3 px-4">❌</td><td class="text-center py-3 px-4">❌</td><td class="text-center py-3 px-4">❌</td><td class="text-center py-3 px-4 text-brand">✅</td></tr>
+              <tr class="border-b border-white/10"><td class="py-3 px-4">Shows cost estimates</td><td class="text-center py-3 px-4">❌</td><td class="text-center py-3 px-4">❌</td><td class="text-center py-3 px-4">❌</td><td class="text-center py-3 px-4 text-brand">✅</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS (unchanged) -->
+    <section class="py-20 bg-black/20">
+      <div class="max-w-4xl mx-auto px-6">
+        <h2 class="section-title text-center mb-16">
+          <span class="gradient-text">What Customers Are Saying</span>
+        </h2>
+        
+        <div class="cat-testimonial">
+          <p class="text-lg text-gray-300 mb-4 italic">
+            "I've been writing Terraform for 3 years. This script taught me things I didn't know — like using for_each with security group rules and why IMDSv2 matters. The generated code is better than what I would have written."
+          </p>
+          <p class="text-brand font-semibold">— Michael S., Senior DevOps Engineer</p>
+        </div>
+        
+        <div class="cat-testimonial">
+          <p class="text-lg text-gray-300 mb-4 italic">
+            "Took me from zero to production EKS in one afternoon. The comments in the generated files are incredible — they explain WHY each resource exists."
+          </p>
+          <p class="text-brand font-semibold">— Sarah K., Cloud Architect</p>
+        </div>
+        
+        <div class="cat-testimonial">
+          <p class="text-lg text-gray-300 mb-4 italic">
+            "The hybrid Terraform + Helm workflow alone is worth the price. No more managing Kubernetes manifests in Terraform."
+          </p>
+          <p class="text-brand font-semibold">— David R., Platform Engineer</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SYSTEM REQUIREMENTS -->
+    <section class="py-20">
+      <div class="max-w-3xl mx-auto px-6">
+        <h2 class="section-title text-center mb-4">
+          <span class="gradient-text">System Requirements</span>
+        </h2>
+        <div class="glass-card p-6">
+          <ul class="space-y-3 text-gray-300">
+            <li class="flex items-start gap-2"><span class="text-brand">✓</span> Bash 4+ (Git Bash on Windows, WSL2, macOS/Linux terminal)</li>
+            <li class="flex items-start gap-2"><span class="text-brand">✓</span> AWS CLI installed and configured (<code class="text-brand">aws configure</code>)</li>
+            <li class="flex items-start gap-2"><span class="text-brand">✓</span> Terraform >= 1.6.0 installed</li>
+            <li class="flex items-start gap-2"><span class="text-brand">✓</span> (Optional) kubectl and helm for EKS management</li>
+            <li class="flex items-start gap-2"><span class="text-brand">✓</span> Internet connection for downloading providers</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING + COST DISCLAIMER -->
+    <section id="pricing" class="py-20">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="section-title text-center mb-4">
+          <span class="gradient-text">Simple, Transparent Pricing</span>
+        </h2>
+        <p class="text-gray-400 text-center mb-2">One-time payment. Lifetime updates. 30-day money-back guarantee.</p>
+        <p class="text-center text-gray-500 text-sm mb-12">Actual AWS costs depend on region, usage, and reserved capacity. <a href="https://calculator.aws" target="_blank" class="text-brand hover:underline">Use AWS Pricing Calculator</a> for exact figures.</p>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Individual (LIVE) -->
+          <div class="cat-price-card">
+            <h3 class="text-xl font-semibold mb-2">Individual</h3>
+            <div class="text-5xl font-bold gradient-text mb-4">$497</div>
+            <p class="text-gray-400 text-sm mb-6">One-time payment</p>
+            <ul class="text-left text-sm space-y-3 mb-8">
+              <li class="cat-check"><span class="text-brand">✓</span> Single user</li>
+              <li class="cat-check"><span class="text-brand">✓</span> All 14 scenarios</li>
+              <li class="cat-check"><span class="text-brand">✓</span> Lifetime updates</li>
+              <li class="cat-check"><span class="text-brand">✓</span> 30-day money-back guarantee</li>
+              <li class="cat-check"><span class="text-brand">✓</span> Email support (30 days)</li>
+            </ul>
+            <a href="https://mintzmedia.gumroad.com/l/xzmnq" target="_blank" class="block w-full py-3 bg-brand rounded-lg hover:bg-brand-light transition font-medium">
+              Buy Now — $497
+            </a>
+          </div>
+          
+          <!-- Team (COMING SOON) -->
+          <div class="cat-price-card featured coming-soon">
+            <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-yellow-500 px-4 py-1 rounded-full text-xs font-semibold text-black">
+              COMING SOON
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Team</h3>
+            <div class="text-5xl font-bold gradient-text mb-4">$997</div>
+            <p class="text-gray-400 text-sm mb-6">One-time (or $49/mo)</p>
+            <ul class="text-left text-sm space-y-3 mb-8">
+              <li class="cat-check"><span class="text-brand">✓</span> Up to 5 users</li>
+              <li class="cat-check"><span class="text-brand">✓</span> All 14 scenarios + custom templates</li>
+              <li class="cat-check"><span class="text-brand">✓</span> Slack support (6 months)</li>
+              <li class="cat-check"><span class="text-brand">✓</span> Commercial use rights</li>
+              <li class="cat-check"><span class="text-brand">✓</span> Everything in Individual</li>
+            </ul>
+            <span class="coming-soon-badge mb-4 inline-block">🔒 Under Review</span>
+            <p class="text-gray-500 text-xs mt-3">Team licensing coming soon.<br>Get the Individual license above in the meantime.</p>
+          </div>
+          
+          <!-- Enterprise (COMING SOON) -->
+          <div class="cat-price-card coming-soon">
+            <h3 class="text-xl font-semibold mb-2">Enterprise</h3>
+            <div class="text-5xl font-bold gradient-text mb-4">$4,997</div>
+            <p class="text-gray-400 text-sm mb-6">One-time (or $199/mo)</p>
+            <ul class="text-left text-sm space-y-3 mb-8">
+              <li class="cat-check"><span class="text-brand">✓</span> Unlimited users</li>
+              <li class="cat-check"><span class="text-brand">✓</span> White-label branding</li>
+              <li class="cat-check"><span class="text-brand">✓</span> Custom scenario builder</li>
+              <li class="cat-check"><span class="text-brand">✓</span> Priority support + 1-hour training</li>
+              <li class="cat-check"><span class="text-brand">✓</span> Integration with existing modules</li>
+            </ul>
+            <span class="coming-soon-badge mb-4 inline-block">🔒 Coming Soon</span>
+            <p class="text-gray-500 text-xs mt-3">Enterprise licensing under review.<br>Contact us to be notified when it's available.</p>
+          </div>
+        </div>
+
+        <!-- Waitlist form for Team/Enterprise -->
+        <div class="waitlist-form">
+          <h4 class="text-lg font-semibold mb-2">Get notified when Team / Enterprise licenses launch</h4>
+          <form action="https://formspree.io/f/xqapwrvv" method="POST">
+            <input type="email" name="email" placeholder="Your email address" required>
+            <button type="submit">Join Waitlist →</button>
+          </form>
+          <p class="text-gray-500 text-xs mt-3">No spam, just a single update when new tiers are ready.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BONUSES (unchanged) -->
+    <section class="py-20 bg-black/20">
+      <div class="max-w-5xl mx-auto px-6 text-center">
+        <h2 class="section-title mb-4">
+          <span class="gradient-text">🎁 Bonuses (Order Within 7 Days)</span>
+        </h2>
+        <p class="text-gray-400 mb-12">$699 in bonuses — included free with your purchase</p>
+        
+        <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          <div class="glass-card p-6">
+            <div class="text-3xl mb-3">🌍</div>
+            <h4 class="font-semibold mb-1">Multi-Region EKS Module</h4>
+            <p class="text-gray-400 text-sm">$200 value — Generate active-active clusters</p>
+          </div>
+          <div class="glass-card p-6">
+            <div class="text-3xl mb-3">☁️</div>
+            <h4 class="font-semibold mb-1">Terraform Cloud Integration</h4>
+            <p class="text-gray-400 text-sm">$150 value — Remote state + workspaces</p>
+          </div>
+          <div class="glass-card p-6">
+            <div class="text-3xl mb-3">💬</div>
+            <h4 class="font-semibold mb-1">Private Slack Community</h4>
+            <p class="text-gray-400 text-sm">$99 value — Direct access to the team</p>
+          </div>
+          <div class="glass-card p-6">
+            <div class="text-3xl mb-3">🎓</div>
+            <h4 class="font-semibold mb-1">1-Hour Architecture Review</h4>
+            <p class="text-gray-400 text-sm">$250 value — Personalized consultation</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GUARANTEE (unchanged) -->
+    <section class="py-20">
+      <div class="max-w-3xl mx-auto px-6 text-center">
+        <div class="text-6xl mb-6">✅</div>
+        <h2 class="text-3xl md:text-5xl font-bold mb-4">
+          30-Day <span class="gradient-text">Risk-Free</span> Guarantee
+        </h2>
+        <p class="text-xl text-gray-400 mb-8">
+          Generate any architecture. Deploy it. If you're not completely satisfied — if you don't save at least 20 hours on your next project — I'll refund every penny. <span class="text-white font-semibold">No questions asked.</span>
+        </p>
+        <a href="https://mintzmedia.gumroad.com/l/xzmnq" target="_blank" class="px-8 py-4 bg-brand rounded-lg hover:bg-brand-light transition text-lg font-medium inline-block">
+          Try It Risk-Free →
+        </a>
+      </div>
+    </section>
+
+    <!-- FAQ (unchanged) -->
+    <section class="py-20 bg-black/20">
+      <div class="max-w-3xl mx-auto px-6">
+        <h2 class="section-title text-center mb-12">
+          <span class="gradient-text">Frequently Asked Questions</span>
+        </h2>
+        <div class="space-y-6">
+          <div class="glass-card p-6"><h3 class="font-semibold mb-2">Q: Do I need AWS experience?</h3><p class="text-gray-400 text-sm">Basic AWS CLI knowledge helps, but the script guides you through everything. The generated code includes comments explaining each decision.</p></div>
+          <div class="glass-card p-6"><h3 class="font-semibold mb-2">Q: Will this work in my region?</h3><p class="text-gray-400 text-sm">Yes — any AWS region with EC2, EKS, and RDS support. The script auto-detects available AZs.</p></div>
+          <div class="glass-card p-6"><h3 class="font-semibold mb-2">Q: Can I customize the generated code?</h3><p class="text-gray-400 text-sm">Absolutely — it's standard Terraform. The script creates a foundation; you modify variables.tf to match your needs.</p></div>
+          <div class="glass-card p-6"><h3 class="font-semibold mb-2">Q: Does this work on Windows?</h3><p class="text-gray-400 text-sm">Yes — Git Bash, WSL2, or any Bash 4+ environment. Tested on Windows 11, macOS, and Linux.</p></div>
+          <div class="glass-card p-6"><h3 class="font-semibold mb-2">Q: What if AWS changes their APIs?</h3><p class="text-gray-400 text-sm">Lifetime updates included. The script uses provider versions pinned to ~> 5.0 (AWS) and follows Terraform best practices.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA (unchanged) -->
+    <section class="py-20 text-center">
+      <div class="max-w-4xl mx-auto px-6">
+        <h2 class="text-4xl md:text-6xl font-bold mb-6">
+          You can spend 40 hours researching,<br />
+          writing, debugging, and documenting Terraform.
+        </h2>
+        <h3 class="text-4xl md:text-6xl font-bold gradient-text mb-8">
+          Or get production-ready code in 60 seconds.
+        </h3>
+        <p class="text-xl text-gray-400 mb-12">Choose wisely.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://mintzmedia.gumroad.com/l/xzmnq" target="_blank" class="px-8 py-4 bg-brand rounded-lg hover:bg-brand-light transition text-lg font-medium">
+            Buy Now — $497 ← Individual License
+          </a>
+          <span class="px-8 py-4 glass btn-disabled transition text-lg font-medium opacity-50 cursor-not-allowed">
+            $997 ← Team License (Coming Soon)
+          </span>
+          <span class="px-8 py-4 glass btn-disabled transition text-lg font-medium opacity-50 cursor-not-allowed">
+            Enterprise ← Coming Soon
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER (trademark disclaimer updated) -->
+    <footer class="border-t border-white/5 py-12">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div><h4 class="text-xl font-bold gradient-text mb-4">BuildMintZ</h4><p class="text-gray-400 text-sm">Infrastructure that ships revenue.</p></div>
+          <div><h5 class="font-semibold mb-4">Products</h5><ul class="space-y-2 text-gray-400 text-sm"><li><a href="/cloud-architect-tutor.html" class="hover:text-white transition">Cloud Architect Tutor</a></li><li><a href="https://mintzmedia.gumroad.com/l/dxlqqjx" target="_blank" class="hover:text-white transition">SaaS Boilerplate</a></li><li><a href="https://mintzmedia.gumroad.com/l/cairoo" target="_blank" class="hover:text-white transition">AI Marketplace</a></li><li><a href="https://mintzmedia.gumroad.com/l/rqofy" target="_blank" class="hover:text-white transition">Commerce Systems</a></li></ul></div>
+          <div><h5 class="font-semibold mb-4">Resources</h5><ul class="space-y-2 text-gray-400 text-sm"><li><a href="/#demo" class="hover:text-white transition">Demo Video</a></li><li><a href="https://github.com/buildmintz" target="_blank" class="hover:text-white transition">GitHub</a></li><li><a href="#" class="hover:text-white transition">Documentation</a></li></ul></div>
+          <div><h5 class="font-semibold mb-4">Support</h5><ul class="space-y-2 text-gray-400 text-sm"><li><a href="mailto:support@cloudarchitecttutor.com" class="hover:text-white transition">support@cloudarchitecttutor.com</a></li><li class="text-gray-500">Response: &lt; 4 hours</li></ul></div>
+        </div>
+        <div class="text-center text-gray-500 text-sm mt-12">
+          © 2026 BuildMintZ. All rights reserved. Terraform, AWS, EKS, and Kubernetes are trademarks of their respective owners. This product is not affiliated with or endorsed by Amazon Web Services, HashiCorp, or the Cloud Native Computing Foundation.
+        </div>
+      </div>
+    </footer>
+    
+  </div>
+</body>
+</html>
